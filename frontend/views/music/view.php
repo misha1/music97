@@ -1,6 +1,9 @@
 <?php
 /** @var $model \common\models\Music */
+
+\frontend\assets\VoiceAsset::register($this)
 ?>
+
 
 <div class="row mt-5">
     <div class="col-sm-3 ml-5">
@@ -19,6 +22,16 @@
                 <source src="<?php echo $model->getMinusLink()?>">
             </audio>
         </div>
+        <div id="controls">
+            <button id="recordButton">Record</button>
+            <button id="pauseButton" disabled>Pause</button>
+            <button id="stopButton" disabled>Stop</button>
+        </div>
+        <div id="formats">Format: start recording to see sample rate</div>
+        <p><strong>Recordings:</strong></p>
+        <ol id="recordingsList"></ol>
+
+        <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
     </div>
     <div class="col-sm-4 border-left ml-5 p-4 border-right">
         <h4 class="">♪ <?php echo $model->music_name?></h4>

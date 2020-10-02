@@ -3,7 +3,6 @@
 /** @var $model \common\models\Music */
 
 use yii\helpers\Url;
-
 ?>
 
 
