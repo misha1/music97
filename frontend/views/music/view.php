@@ -22,13 +22,13 @@
                 <source src="<?php echo $model->getMinusLink()?>">
             </audio>
         </div>
-        <div id="controls">
+        <div class="mb-1" id="formats">Запись голоса</div>
+        <div id="controls" class="mb-1">
             <button id="recordButton">Record</button>
             <button id="pauseButton" disabled>Pause</button>
             <button id="stopButton" disabled>Stop</button>
         </div>
-        <div id="formats">Format: start recording to see sample rate</div>
-        <p><strong>Recordings:</strong></p>
+        <p><strong>Запись:</strong></p>
         <ol id="recordingsList"></ol>
 
         <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
