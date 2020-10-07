@@ -78,13 +78,17 @@ class MusicController extends Controller
      */
     public function actionCreate()
     {
+        return $this->render('create');
+    }
+    public function actionMusic_lesson()
+    {
         $model = new Music();
         $model->music = UploadedFile::getInstanceByName('music');
         if (Yii::$app->request->isPost && $model->save()) {
             return $this->redirect(['update', 'id' => $model->music_id]);
         }
 
-        return $this->render('create', [
+        return $this->render('music_lesson', [
             'model' => $model,
         ]);
     }

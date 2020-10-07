@@ -1,6 +1,8 @@
 <?php
 /** @var $model \common\models\Music */
 
+use yii\helpers\Html;
+
 \frontend\assets\VoiceAsset::register($this)
 ?>
 
@@ -37,7 +39,7 @@
         <h4 class="">♪ <?php echo $model->music_name?></h4>
         <a href="#"><h4 class=""><?php echo $model->author_name?></h4></a>
         <div class="text-muted mb-1"><?php echo $model->title?></div>
-        <div class="mb-2"><?php echo $model->description?></div>
+        <div class="mb-2"><?php echo Html::encode($model->description)?></div>
         <p class="mb-2">Текст песни:</p>
         <div class="border p-1 shadow" style="text-align: center"><?php echo nl2br($model->lyrics)?></div>
 
