@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Music;
+use common\models\MusicSearch;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -53,7 +54,11 @@ class MusicController extends Controller
                 ->latest(),
         ]);
 
+        $searchModel = new MusicSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
         return $this->render('index', [
+            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }

@@ -6,7 +6,7 @@ use yii\helpers\Url;
 ?>
 
 
-<div class="card m-3" style="max-width: 500px;">
+<div class="card m-2" style="max-width: 500px;">
   <div class="row no-gutters">
       <div class="col-md-4">
           <a href="<?php echo Url::to(['music/view', 'id' => $model->music_id])?>">
