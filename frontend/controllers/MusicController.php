@@ -47,5 +47,6 @@ class MusicController extends Controller
             'model' => $music
         ]);
     }
+
 }
 
