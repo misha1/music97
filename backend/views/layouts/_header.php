@@ -16,18 +16,17 @@ NavBar::begin([
     'class' => 'container-fluid'
     ]
 ]);
-    $menuItems = [
-        ['label' => 'Добавить', 'url' => ['/music/create']],
-    ];
+
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Вход', 'url' => ['/site/login']];
     } else {
-    $menuItems[] = [
-        'label' => 'Выход (' . Yii::$app->user->identity->username . ')',
+    $menuItems = [
+        ['label' => 'Добавить', 'url' => ['site/create']],
+        ['label' => 'Выход (' . Yii::$app->user->identity->username . ')',
         'url' => ['/site/logout'],
         'linkOptions' => [
         'data-method' => 'post'
-        ]
+        ]]
     ];
 }
     echo Nav::widget([

@@ -4,6 +4,4 @@
 
 $this->title = 'My Yii Application';
 ?>
-<div class="site-index">
-    index
-</div>
+index

@@ -37,7 +37,7 @@ use yii\helpers\Html;
     </div>
     <div class="col-sm-4 border-left ml-5 p-4 border-right">
         <h4 class="">♪ <?php echo $model->music_name?></h4>
-        <a href="#"><h4 class=""><?php echo $model->author_name?></h4></a>
+        <a href="https://www.google.com/search?q=<?php echo $model->author_name?>" target="_blank"><h4 class=""><?php echo $model->author_name?></h4></a>
         <div class="text-muted mb-1"><?php echo $model->title?></div>
         <div class="mb-2"><?php echo Html::encode($model->description)?></div>
         <p class="mb-2">Текст песни:</p>

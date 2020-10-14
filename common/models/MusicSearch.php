@@ -17,8 +17,8 @@ class MusicSearch extends Music
     public function rules()
     {
         return [
-            [['music_id', 'title', 'description', 'lyrics', 'music_name', 'author_name'], 'safe'],
-            [['status', 'created_at', 'updated_at', 'created_by', 'has_thumbnail', 'has_minus'], 'integer'],
+            [['title', 'music_name', 'author_name'], 'safe'],
+            [['status', 'created_at', 'updated_at'], 'integer'],
         ];
     }
 
@@ -61,15 +61,10 @@ class MusicSearch extends Music
             'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'created_by' => $this->created_by,
-            'has_thumbnail' => $this->has_thumbnail,
-            'has_minus' => $this->has_minus,
         ]);
 
-        $query->andFilterWhere(['like', 'music_id', $this->music_id])
+        $query
             ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'lyrics', $this->lyrics])
             ->andFilterWhere(['like', 'music_name', $this->music_name])
             ->andFilterWhere(['like', 'author_name', $this->author_name]);
 

@@ -8,12 +8,24 @@
             ],
             'items' => [
                 [
-                    'label' => 'Главная',
+                    'label' => 'Новости',
                     'url' => ['/site/index']
                 ],
                 [
-                    'label' => 'Музыки',
+                    'label' => 'Музыка',
                     'url' => ['/music/index']
+                ],
+                [
+                    'label' => 'Тест',
+                    'url' => ['/test/index']
+                ],
+                [
+                    'label' => 'Урок 3',
+                    'url' => ['/music/lesson_3']
+                ],
+                [
+                    'label' => 'Урок 4',
+                    'url' => ['/music/lesson_4']
                 ]
             ]
         ]) ?>

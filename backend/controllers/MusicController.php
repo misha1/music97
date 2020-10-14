@@ -81,10 +81,8 @@ class MusicController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
-        return $this->render('create');
-    }
+
+
     public function actionMusic_lesson()
     {
         $model = new Music();

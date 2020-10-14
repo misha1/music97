@@ -1,6 +1,7 @@
 <?php
 namespace backend\controllers;
 
+use console\controllers\RbacAdminAssignController;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -30,6 +31,11 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                    [
+                        'actions' => ['create'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ]
                 ],
             ],
             'verbs' => [
@@ -100,4 +106,10 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+
+    public function actionCreate()
+    {
+        return $this->render('create');
+    }
+
 }

@@ -98,8 +98,6 @@ class Music extends \yii\db\ActiveRecord
             'created_at' => 'Создано',
             'updated_at' => 'Обновлено',
             'created_by' => 'Создатель',
-            'has_thumbnail' => 'Has_Thumbnail',
-            'has_minus' => 'Минусовка'
         ];
     }
 

@@ -8,17 +8,21 @@
             ],
             'items' => [
                 [
-                    'label' => 'Главная',
+                    'label' => 'Пения',
                     'url' => ['/music/index']
                 ],
                 [
-                    'label' => 'Оценки',
-                    'url' => ['/music/appraisals']
+                    'label' => 'Тест',
+                    'url' => ['/music/test']
                 ],
                 [
-                    'label' => 'Рейтинг',
-                    'url' => ['/music/rating']
-                ]
+                    'label' => 'Урок 3',
+                    'url' => ['/music/lesson3']
+                ],
+                [
+                    'label' => 'Урок 4',
+                    'url' => ['/music/lesson4']
+                ],
             ]
         ]) ?>
 </aside>

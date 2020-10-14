@@ -8,7 +8,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\models\MusicSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Музыки';
+$this->title = 'Музыка';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="music-index">
@@ -16,11 +16,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Добавить', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить', ['music_lesson'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -42,7 +41,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'status',
                 'content'  =>  function($model){
                     return $model->getStatusLabel()[$model->status];
-                }
+                },
+                'filter' => [0 => 'Скрыто', 1 => 'Опубликованно']
             ],
             //'created_by',
 
