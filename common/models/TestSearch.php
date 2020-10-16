@@ -18,7 +18,7 @@ class TestSearch extends Test
     {
         return [
             [['test_id', 'test_name', 'description'], 'safe'],
-            [['failCount', 'successCount', 'created_by', 'updated_by', 'created_at'], 'integer'],
+            [['failCount', 'successCount', 'created_by', 'updated_at', 'created_at'], 'integer'],
         ];
     }
 
@@ -61,7 +61,7 @@ class TestSearch extends Test
             'failCount' => $this->failCount,
             'successCount' => $this->successCount,
             'created_by' => $this->created_by,
-            'updated_by' => $this->updated_by,
+            'updated_at' => $this->updated_at,
             'created_at' => $this->created_at,
         ]);
 

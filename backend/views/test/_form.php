@@ -28,6 +28,8 @@ use yii\bootstrap4\ActiveForm;
                 <label class="custom-file-label" for="thumbnailTest"></label>
             </div>
 
+            <?= $form->field($model, 'status')->dropDownList($model->getStatusLabel()) ?>
+
             <div class="form-group d-flex justify-content-center">
                 <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
             </div>

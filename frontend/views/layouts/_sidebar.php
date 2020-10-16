@@ -13,7 +13,7 @@
                 ],
                 [
                     'label' => 'Тест',
-                    'url' => ['/music/test']
+                    'url' => ['/test/test']
                 ],
                 [
                     'label' => 'Урок 3',
