@@ -63,6 +63,8 @@ class Test extends \yii\db\ActiveRecord
             [['test_name'], 'string', 'max' => 255],
             [['test_id'], 'unique'],
             ['has_thumbnail', 'default', 'value' => 0],
+            ['failCount', 'default', 'value' => 0],
+            ['successCount', 'default', 'value' => 0],
             ['thumbnailTest', 'image', 'minWidth' => 150],
             ['status', 'default', 'value' => self::STATUS_UNLISTED],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
@@ -149,4 +151,5 @@ class Test extends \yii\db\ActiveRecord
         return $this->has_thumbnail ?
             Yii::$app->params['frontendUrl'].'storage/test/thumbs/'.$this->test_id.'.jpg' : '';
     }
+
 }

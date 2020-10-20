@@ -3,19 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Music;
-use common\models\MusicSearch;
-use yii\data\ActiveDataProvider;
-use yii\filters\AccessControl;
+use common\models\TestQuestion;
+use common\models\TestQuestionSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
- * MusicController implements the CRUD actions for Music model.
+ * TestQuestionController implements the CRUD actions for TestQuestion model.
  */
-class MusicController extends Controller
+class TestQuestionController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -23,15 +20,6 @@ class MusicController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::class,
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['admin']
-                    ]
-                ]
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -42,19 +30,12 @@ class MusicController extends Controller
     }
 
     /**
-     * Lists all Music models.
+     * Lists all TestQuestion models.
      * @return mixed
      */
     public function actionIndex()
     {
-
-        $dataProvider = new ActiveDataProvider([
-            'query' => Music::find()
-                ->creator(Yii::$app->user->id)
-                ->latest(),
-        ]);
-
-        $searchModel = new MusicSearch();
+        $searchModel = new TestQuestionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -63,31 +44,41 @@ class MusicController extends Controller
         ]);
     }
 
+    /**
+     * Displays a single TestQuestion model.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
 
     /**
-     * Creates a new Music model.
+     * Creates a new TestQuestion model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-
-
-    public function actionMusic_lesson()
+    public function actionCreate()
     {
-        $model = new Music();
-        $model->music = UploadedFile::getInstanceByName('music');
-        if (Yii::$app->request->isPost && $model->save()) {
-            return $this->redirect(['update', 'id' => $model->music_id]);
+        $model = new TestQuestion();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        return $this->render('music_lesson', [
+        return $this->render('create', [
             'model' => $model,
         ]);
     }
 
     /**
-     * Updates an existing Music model.
+     * Updates an existing TestQuestion model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -95,12 +86,8 @@ class MusicController extends Controller
     {
         $model = $this->findModel($id);
 
-        $model->thumbnail = UploadedFile::getInstanceByName('thumbnail');
-
-        $model->minus = UploadedFile::getInstanceByName('minus');
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['update', 'id' => $model->music_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -109,9 +96,9 @@ class MusicController extends Controller
     }
 
     /**
-     * Deletes an existing Music model.
+     * Deletes an existing TestQuestion model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -123,15 +110,15 @@ class MusicController extends Controller
     }
 
     /**
-     * Finds the Music model based on its primary key value.
+     * Finds the TestQuestion model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return Music the loaded model
+     * @param integer $id
+     * @return TestQuestion the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Music::findOne($id)) !== null) {
+        if (($model = TestQuestion::findOne($id)) !== null) {
             return $model;
         }
 

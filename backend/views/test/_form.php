@@ -6,6 +6,7 @@ use yii\bootstrap4\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\Test */
 /* @var $form yii\bootstrap4\ActiveForm */
+
 ?>
 
 <div class="TestForm w-25">
@@ -16,6 +17,7 @@ use yii\bootstrap4\ActiveForm;
         ); ?>
         <div class="">
             <?php echo $form->errorSummary($model)?>
+
             <?= $form->field($model, 'test_name')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'description')->textarea(['rows' => 3]) ?>

@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row justify-content-center mb-5">
     <div class="col-md-4 p-0 m-3">
-        <a href="#">
+        <a href="<?php echo \yii\helpers\Url::to(['/test/create'])?>">
             <div class="card bg-light text-dark">
                 <img src="https://fsd.multiurok.ru/html/2020/05/03/s_5eaea1c52e593/img0.jpg" class="card-img" alt="..." >
                 <div class="card-img-overlay">

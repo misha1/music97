@@ -41,7 +41,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'music/update/<id>' => 'music/update'
+                'music/update/<id>' => 'music/update',
+                'test/update/<id>' => 'test/update'
             ],
         ],
         'assetManager' => [

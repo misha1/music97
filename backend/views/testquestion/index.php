@@ -4,39 +4,38 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\TestSearch */
+/* @var $searchModel common\models\TestQuestionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Tests';
+$this->title = 'Test Questions';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="test-index">
+<div class="test-question-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Test', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Test Question', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            [
-                'attribute' => 'test_name',
-                'content' => function($model){
-                    return $this->render('_test_item', ['model' => $model]);
-                }
-            ],
-            'description:ntext',
-            'failCount',
-            'successCount',
-            //'created_by',
-            //'updated_by',
-            'created_at:date',
+
+            'id',
+            'question_id',
+            'count_answer',
+            'name:ntext',
+            'timer',
+            //'answer',
+            //'has_thumbnail',
+            //'has_music',
+            //'created_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
