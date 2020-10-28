@@ -4,12 +4,12 @@ namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\TestQuestion;
+use common\models\Answer;
 
 /**
- * TestQuestionSearch represents the model behind the search form of `common\models\TestQuestion`.
+ * AnswerSearch represents the model behind the search form of `common\models\Answer`.
  */
-class TestQuestionSearch extends TestQuestion
+class AnswerSearch extends Answer
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class TestQuestionSearch extends TestQuestion
     public function rules()
     {
         return [
-            [['id', 'has_thumbnail', 'has_music', 'created_at'], 'integer'],
-            [['question_id', 'name', 'timer', 'answer'], 'safe'],
+            [['id', 'has_file'], 'integer'],
+            [['question_id', 'answer'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class TestQuestionSearch extends TestQuestion
      */
     public function search($params)
     {
-        $query = TestQuestion::find();
+        $query = Answer::find();
 
         // add conditions that should always apply here
 
@@ -59,14 +59,10 @@ class TestQuestionSearch extends TestQuestion
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'timer' => $this->timer,
-            'has_thumbnail' => $this->has_thumbnail,
-            'has_music' => $this->has_music,
-            'created_at' => $this->created_at,
+            'has_file' => $this->has_file,
         ]);
 
         $query->andFilterWhere(['like', 'question_id', $this->question_id])
-            ->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'answer', $this->answer]);
 
         return $dataProvider;

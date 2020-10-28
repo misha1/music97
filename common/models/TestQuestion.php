@@ -16,11 +16,12 @@ use Yii;
  * @property int|null $has_thumbnail
  * @property int|null $has_music
  * @property int|null $created_at
- *
+ * @property Answer[] $answers
  * @property Test $question
  */
 class TestQuestion extends \yii\db\ActiveRecord
 {
+    use \mootensai\relation\RelationTrait;
     /**
      * {@inheritdoc}
      */
@@ -35,11 +36,11 @@ class TestQuestion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['count_answer', 'has_thumbnail', 'has_music', 'created_at'], 'integer'],
+            [['answer', 'name'], 'required'],
+            [['has_thumbnail', 'has_music', 'created_at'], 'integer'],
             [['name'], 'string'],
-            [['timer'], 'safe'],
-            [['question_id'], 'string', 'max' => 16],
-            [['answer'], 'string', 'max' => 255],
+            [['timer'], 'date', 'format' => 'H:m:s'],
+            [['answer'], 'string'],
             [['question_id'], 'exist', 'skipOnError' => true, 'targetClass' => Test::className(), 'targetAttribute' => ['question_id' => 'test_id']],
         ];
     }
@@ -52,13 +53,13 @@ class TestQuestion extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'question_id' => 'Question ID',
-            'count_answer' => 'Count Answer',
-            'name' => 'Name',
-            'timer' => 'Timer',
-            'answer' => 'Answer',
-            'has_thumbnail' => 'Has Thumbnail',
-            'has_music' => 'Has Music',
-            'created_at' => 'Created At',
+            'count_answer' => 'Количество ответов',
+            'name' => 'Вопрос',
+            'timer' => 'Таймер',
+            'answer' => 'Правильный ответ',
+            'has_thumbnail' => 'Изображения',
+            'has_music' => 'Музыка',
+            'created_at' => 'Добавлено',
         ];
     }
 
@@ -72,6 +73,13 @@ class TestQuestion extends \yii\db\ActiveRecord
         return $this->hasOne(Test::className(), ['test_id' => 'question_id']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAnswers()
+    {
+        return $this->hasMany(Answer::className(), ['question_id' => 'id']);
+    }
     /**
      * {@inheritdoc}
      * @return \common\models\query\TestQuestionQuery the active query used by this AR class.

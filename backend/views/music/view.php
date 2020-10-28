@@ -4,20 +4,20 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Test */
+/* @var $model common\models\Music */
 
-$this->title = $model->test_id;
-$this->params['breadcrumbs'][] = ['label' => 'Tests', 'url' => ['index']];
+$this->title = $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Musics', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="test-view">
+<div class="music-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->test_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->test_id], [
+        <?= Html::a('Update', ['update', 'id' => $model->music_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->music_id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -29,16 +29,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'test_id',
-            'test_name',
+            'music_id',
+            'title',
             'description:ntext',
-            'failCount',
-            'successCount',
-            'created_by',
-            'updated_at',
-            'created_at',
+            'lyrics:ntext',
+            'music_name:ntext',
+            'author_name:ntext',
             'status',
+            'created_at',
+            'updated_at',
+            'created_by',
             'has_thumbnail',
+            'has_minus',
         ],
     ]) ?>
 

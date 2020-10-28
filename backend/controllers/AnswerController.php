@@ -3,17 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Test;
-use common\models\TestSearch;
+use common\models\Answer;
+use common\models\AnswerSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
- * TestController implements the CRUD actions for Test model.
+ * AnswerController implements the CRUD actions for Answer model.
  */
-class TestController extends Controller
+class AnswerController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -31,12 +30,12 @@ class TestController extends Controller
     }
 
     /**
-     * Lists all Test models.
+     * Lists all Answer models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new TestSearch();
+        $searchModel = new AnswerSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,8 +45,8 @@ class TestController extends Controller
     }
 
     /**
-     * Displays a single Test model.
-     * @param string $id
+     * Displays a single Answer model.
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -59,17 +58,16 @@ class TestController extends Controller
     }
 
     /**
-     * Creates a new Test model.
+     * Creates a new Answer model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Test();
-        $model->thumbnailTest = UploadedFile::getInstanceByName('thumbnailTest');
+        $model = new Answer();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['update', 'id' => $model->test_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -78,17 +76,18 @@ class TestController extends Controller
     }
 
     /**
-     * Updates an existing Test model.
+     * Updates an existing Answer model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['update', 'id' => $model->test_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -97,9 +96,9 @@ class TestController extends Controller
     }
 
     /**
-     * Deletes an existing Test model.
+     * Deletes an existing Answer model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -111,19 +110,18 @@ class TestController extends Controller
     }
 
     /**
-     * Finds the Test model based on its primary key value.
+     * Finds the Answer model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return Test the loaded model
+     * @param integer $id
+     * @return Answer the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Test::findOne($id)) !== null) {
+        if (($model = Answer::findOne($id)) !== null) {
             return $model;
         }
+
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
-
 }

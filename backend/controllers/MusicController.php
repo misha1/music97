@@ -84,6 +84,13 @@ class MusicController extends Controller
         ]);
     }
 
+
+    public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
     /**
      * Updates an existing Music model.
      * If update is successful, the browser will be redirected to the 'view' page.

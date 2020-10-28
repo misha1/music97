@@ -14,11 +14,21 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "php": ">=5.6.0",
-        "yiisoft/yii2": "~2.0.14",
-        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
+        "wbraganca/yii2-dynamicform": "*",
+        "yiisoft/yii2-swiftmailer": "^2.1",
+        "yiisoft/yii2-imagine": "^2.2",
         "yiisoft/yii2-bootstrap4": "^2.0",
-        "yiisoft/yii2-imagine": "^2.2"
+        "symfony/polyfill-php72": "^1.20",
+        "symfony/polyfill-php70": "^1.20",
+        "symfony/polyfill-intl-idn": "^1.20",
+        "symfony/polyfill-iconv": "^1.20",
+        "swiftmailer/swiftmailer": "^6.2",
+        "paragonie/random_compat": "^9.99",
+        "npm-asset/bootstrap": "^4.5",
+        "imagine/imagine": "^1.2",
+        "egulias/email-validator": "^2.1",
+        "doctrine/lexer": "^1.2",
+        "mootensai/yii2-relation-trait": "^1.1"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

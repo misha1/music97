@@ -4,18 +4,18 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\TestQuestionSearch */
+/* @var $searchModel common\models\AnswerSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Test Questions';
+$this->title = 'Answers';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="test-question-index">
+<div class="answer-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Test Question', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Answer', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -29,13 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'question_id',
-            'count_answer',
-            'name:ntext',
-            'timer',
-            //'answer',
-            //'has_thumbnail',
-            //'has_music',
-            //'created_at',
+            'answer',
+            'has_file',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -24,12 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            [
-                'attribute' => 'music_name',
-                'content' => function($model){
-                    return $this->render('_music_item', ['model' => $model]);
-                }
-            ],
+
+            'attribute' => 'music_name',
             'author_name',
             'title',
 //            'description:ntext',
@@ -47,15 +43,6 @@ $this->params['breadcrumbs'][] = $this->title;
             //'created_by',
 
             ['class' => 'yii\grid\ActionColumn',
-                'buttons' => [
-                        'delete' => function ($url){
-                            return Html::a('Удалить', $url, [
-                                    'data-method' => 'post',
-                                    'data-confirm' => 'Вы уверены?'
-                            ]);
-                        }
-                ]
-
             ],
         ],
     ]); ?>

@@ -4,6 +4,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Test */
+/* @var $modelQuestion common\models\TestQuestion */
 
 
 $this->title = 'Create Test';

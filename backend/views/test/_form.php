@@ -7,6 +7,7 @@ use yii\bootstrap4\ActiveForm;
 /* @var $model common\models\Test */
 /* @var $form yii\bootstrap4\ActiveForm */
 
+
 ?>
 
 <div class="TestForm w-25">
@@ -32,8 +33,9 @@ use yii\bootstrap4\ActiveForm;
 
             <?= $form->field($model, 'status')->dropDownList($model->getStatusLabel()) ?>
 
-            <div class="form-group d-flex justify-content-center">
-                <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            <div class="form-group d-flex justify-content-around">
+                <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+
             </div>
         </div>
 

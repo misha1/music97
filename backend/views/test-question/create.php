@@ -1,21 +1,24 @@
 <?php
 
+use common\models\Answer;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\TestQuestion */
+/* @var $AnswerModel common\models\Answer */
 
-$this->title = 'Update Test Question: ' . $model->name;
+$this->title = 'Вопросы';
 $this->params['breadcrumbs'][] = ['label' => 'Test Questions', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="test-question-update">
+
+<div class="test-question-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
+        'AnswerModel' => (empty($AnswerModel)) ? [new Answer] : $AnswerModel
     ]) ?>
 
 </div>

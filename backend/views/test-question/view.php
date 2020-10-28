@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'question_id',
-            'count_answer',
             'name:ntext',
             'timer',
             'answer',

@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\models\TestSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Tests';
+$this->title = 'Тест';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="test-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Test', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать тест', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -24,21 +24,29 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            [
-                'attribute' => 'test_name',
-                'content' => function($model){
-                    return $this->render('_test_item', ['model' => $model]);
-                }
-            ],
+
+            'test_name',
             'description:ntext',
             'failCount',
             'successCount',
             //'created_by',
             //'updated_by',
             'created_at:date',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'attribute' => 'status',
+                'content'  =>  function($model){
+                    return $model->getStatusLabel()[$model->status];
+                },
+                'filter' => [0 => 'Скрыто', 1 => 'Опубликованно']
+            ],
+            [
+                'attribute' => 'Количество Вопросов',
+                'content'  =>  function($model){
+                    return $model->getQuestionCount()->count();
+                },
+            ],
+            ['class' => 'yii\grid\ActionColumn',
+            ],
         ],
     ]); ?>
 
