@@ -7,8 +7,8 @@ use yii\helpers\Html;
 /* @var $modelQuestion common\models\TestQuestion */
 
 
-$this->title = 'Create Test';
-$this->params['breadcrumbs'][] = ['label' => 'Tests', 'url' => ['index']];
+$this->title = 'Добавить Тест';
+$this->params['breadcrumbs'][] = ['label' => 'Тест', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="test-create">

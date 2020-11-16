@@ -69,7 +69,7 @@ class TestController extends Controller
         $model->thumbnailTest = UploadedFile::getInstanceByName('thumbnailTest');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['update', 'id' => $model->test_id]);
+            return $this->redirect(['view', 'id' => $model->test_id]);
         }
 
         return $this->render('create', [
@@ -88,7 +88,7 @@ class TestController extends Controller
     {
         $model = $this->findModel($id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['update', 'id' => $model->test_id]);
+            return $this->redirect(['view', 'id' => $model->test_id]);
         }
 
         return $this->render('update', [

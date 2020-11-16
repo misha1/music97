@@ -61,10 +61,10 @@ class TestQuestionController extends Controller
      * @param string $id
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id)
     {
         $model = new TestQuestion;
-        $model->question_id = 'BLxbSc0T';
+        $model->question_id = $id;
         $AnswerModel = [new Answer];
 
         if ($model->loadAll(Yii::$app->request->post()) && $model->saveAll()) {
@@ -77,14 +77,7 @@ class TestQuestionController extends Controller
             ]);
         }
     }
-//            return $this->redirect(['update', 'id' => $model->id]);
-//        }
-//
-//        return $this->render('create', [
-//            'model' => $model,
-//            'AnswerModel' => $AnswerModel
-//        ]);
-//    }
+
 
     /**
      * Updates an existing TestQuestion model.

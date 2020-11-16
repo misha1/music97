@@ -40,6 +40,8 @@ $this->registerJs($js);
 
     <?php echo $form->errorSummary($model)?>
     <?php echo $form->errorSummary($AnswerModel)?>
+
+
     <div class="">
         <?= $form->field($model, 'name')->textarea(['rows' => 6]) ?>
 

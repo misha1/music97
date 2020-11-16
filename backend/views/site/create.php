@@ -6,7 +6,6 @@ use yii\helpers\Html;
 /* @var $model common\models\Music */
 
 $this->title = 'Музыка';
-$this->params['breadcrumbs'][] = ['label' => 'Musics', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row justify-content-center mb-5">

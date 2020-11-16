@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::a('Добавить вопросы', ['/test-question/create', 'id' => $model->test_id], ['class' => 'btn btn-secondary']) ?>
     </p>
 
     <?= DetailView::widget([
@@ -32,6 +33,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'test_id',
             'test_name',
             'description:ntext',
+            [                                                  // name свойство зависимой модели owner
+                'label' => 'Количество вопросов',
+                'value' => $model->getQuestionCount()->count(),
+            ],
             'failCount',
             'successCount',
             'created_by',
